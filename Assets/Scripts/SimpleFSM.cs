@@ -1,13 +1,16 @@
 using UnityEngine;
 
-public enum State
-{
-    Patrol,
-    Chase,
-    Attack
-}
-
 public class SimpleFSM : MonoBehaviour
 {
-    private State currentState;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }
