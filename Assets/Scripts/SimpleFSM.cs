@@ -27,6 +27,7 @@ public class SimpleFSM : MonoBehaviour
 
     private State currentState;
     private Transform currentTarget;
+    private float distanceToPlayer;
 
     private void Start()
     {
@@ -36,6 +37,7 @@ public class SimpleFSM : MonoBehaviour
 
     private void Update()
     {
+        TrackPlayerDistance();
         switch (currentState)
         {
             case State.Patrol:
@@ -69,6 +71,11 @@ public class SimpleFSM : MonoBehaviour
         SetCurrentTarget(waypoints[randomIndex]);
     }
 
+    private void TrackPlayerDistance()
+    {
+        distanceToPlayer = Vector3.Distance(transform.position, player.position);
+    }
+
     private void DoAttack()
     {
         
@@ -76,10 +83,18 @@ public class SimpleFSM : MonoBehaviour
 
     private void DoChase()
     {
-        
+        if(distanceToPlayer > chaseDistance)
+        {
+            currentState = State.Patrol;
+            RandomizeWaypointTarget();
+        }
+        else
+        {
+            MoveToTarget();
+        }
     }
 
-    private void DoPatrol()
+    private void MoveToTarget()
     {
         // Enemy will move to the target waypoint
         Vector3 targetDirection = currentTarget.position - transform.position;
@@ -89,13 +104,23 @@ public class SimpleFSM : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotateSpeed);
         // Since it's already rotated, just make it move forward
         transform.Translate(Vector3.forward * Time.deltaTime * moveSpeed);
+    }
 
+    private void DoPatrol()
+    {
+        MoveToTarget();
 
         // Keep track of the distance
         float distanceToTarget = Vector3.Distance(transform.position, currentTarget.position);
         if (distanceToTarget < waypointDistance)
         {
             RandomizeWaypointTarget();
+        }
+        // need to check distance to player as well
+        else if(distanceToPlayer < chaseDistance)
+        {
+            currentState = State.Chase;
+            SetCurrentTarget(player);
         }
     }
 }
