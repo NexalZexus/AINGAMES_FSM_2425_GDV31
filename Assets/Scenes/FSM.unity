@@ -473,6 +473,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 293391798}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &461914155
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 461914157}
+  - component: {fileID: 461914156}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &461914156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461914155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bade538dc817a746b44b88b30d837b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &461914157
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461914155}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &505732271
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,20 +724,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 606524904}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84e9fb4ddcc7d874f9d9ccd43a14539d, type: 3}
+  m_Script: {fileID: 11500000, guid: bc54fc5827f555e4a86b2f9dc1accccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
   rotateSpeed: 10
-  chaseDistance: 5
-  waypointDistance: 2
+  chaseDistance: 10
+  waypointDistance: 5
   waypoints:
   - {fileID: 30074306}
   - {fileID: 798293365}
   - {fileID: 1337552218}
   - {fileID: 989426670}
   player: {fileID: 879452594}
-  fsm: {fileID: 0}
 --- !u!1 &642098263
 GameObject:
   m_ObjectHideFlags: 0
@@ -1460,3 +1503,4 @@ SceneRoots:
   - {fileID: 505732273}
   - {fileID: 1848203127}
   - {fileID: 606524910}
+  - {fileID: 461914157}
