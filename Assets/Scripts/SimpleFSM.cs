@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SimpleFSM : MonoBehaviour
+public class SimpleFSM : FiniteStateMachine
 {
     [Header("Movement")]
     [SerializeField]
@@ -29,13 +29,13 @@ public class SimpleFSM : MonoBehaviour
     private Transform currentTarget;
     private float distanceToPlayer;
 
-    private void Start()
+    protected override void Initialize()
     {
         currentState = State.Patrol;
         RandomizeWaypointTarget();
     }
 
-    private void Update()
+    protected override void UpdateStateMachine()
     {
         TrackPlayerDistance();
         switch (currentState)

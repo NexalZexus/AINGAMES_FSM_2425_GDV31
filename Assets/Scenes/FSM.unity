@@ -693,6 +693,7 @@ MonoBehaviour:
   - {fileID: 1337552218}
   - {fileID: 989426670}
   player: {fileID: 879452594}
+  fsm: {fileID: 0}
 --- !u!1 &642098263
 GameObject:
   m_ObjectHideFlags: 0
