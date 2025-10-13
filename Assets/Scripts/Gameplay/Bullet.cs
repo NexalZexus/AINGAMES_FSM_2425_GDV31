@@ -14,6 +14,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] 
     private int damage = 50;
 
+    public int Damage => damage;
   
     private void Start()
     {
@@ -32,10 +33,18 @@ public class Bullet : MonoBehaviour
    
     private void OnCollisionEnter(Collision collision)
     {
+        EnemyTankController enemy;
+        enemy = collision.gameObject.GetComponent<EnemyTankController>();
+        if (enemy != null) 
+        {
+            enemy.TakeDamage(damage);
+        }
+
         // Spawn the explosion effect on the collision point
         ContactPoint contact = collision.contacts[0];
         Instantiate(explosion, contact.point, Quaternion.identity);
         // Destroy gameobject since it already collided with something
         Destroy(gameObject);
     }
+
 }

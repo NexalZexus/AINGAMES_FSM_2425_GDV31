@@ -5,8 +5,6 @@ public class PatrolState : FSMState
     public override StateID StateId => StateID.Patrol;
 
     private Transform[] _waypoints;
-    private Transform _currentTarget;
-    private EnemyTankController _enemyTankController;
 
     // Constructor
     public PatrolState(EnemyTankController enemyTankController, Transform[] waypoints)

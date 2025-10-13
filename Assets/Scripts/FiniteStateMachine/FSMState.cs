@@ -3,6 +3,8 @@ using UnityEngine;
 
 public abstract class FSMState
 {
+    public EnemyTankController _enemyTankController;
+    public Transform _currentTarget; 
     public abstract void RunState(Transform agent, Transform player);
     public abstract void CheckTransition(Transform agent, Transform player);
 

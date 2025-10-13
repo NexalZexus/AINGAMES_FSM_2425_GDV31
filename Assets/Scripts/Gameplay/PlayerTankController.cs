@@ -16,7 +16,7 @@ public class PlayerTankController : MonoBehaviour
     private float turretRotSpeed = 10.0f;
     
     //Bullet shooting rate
-    protected float shootRate;
+    protected float shootRate = 1f;
     protected float elapsedTime;
 
     private void Start()
@@ -87,12 +87,13 @@ public class PlayerTankController : MonoBehaviour
 
         //Determine current speed
         curSpeed = Mathf.Lerp(curSpeed, targetSpeed, 7.0f * Time.deltaTime);
-        transform.Translate(Vector3.forward * Time.deltaTime * curSpeed);    
+        transform.Translate(Vector3.forward * Time.deltaTime * curSpeed);
+        elapsedTime += Time.deltaTime;
     }
 
     private void UpdateWeapon()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButton(0))
         {
             if (elapsedTime >= shootRate)
             {
